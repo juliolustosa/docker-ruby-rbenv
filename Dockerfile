@@ -62,8 +62,14 @@ ENV RBENV_ROOT /home/$USER/.rbenv
 ENV PATH="$RBENV_ROOT/bin:$RBENV_ROOT/shims:$PATH"
 ENV PATH="$RBENV_ROOT/plugins/ruby-build/bin:$PATH"
 
-## Gems
+# Setup bundler
 RUN gem install bundler && rbenv rehash
-RUN gem install rake && rbenv rehash
+ENV GEM_HOME /home/$USER/.bundle
+ENV BUNDLE_PATH="$GEM_HOME"
+ENV	BUNDLE_BIN="$GEM_HOME/bin"
+ENV	BUNDLE_APP_CONFIG="$GEM_HOME"
+ENV PATH="$BUNDLE_BIN:$PATH"
+RUN mkdir -p "$GEM_HOME" "$BUNDLE_BIN"
+RUN chmod 777 "$GEM_HOME" "$BUNDLE_BIN"
 
 CMD [ "irb" ]
