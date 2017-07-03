@@ -25,7 +25,3 @@ done
 rbenv global $RUBY_VERSION_DEFAULT && rbenv rehash
 echo "Ruby version default is $RUBY_VERSION_DEFAULT"
 echo ruby -v
-
-## Gems
-gem install bundler && rbenv rehash
-gem install rake && rbenv rehash

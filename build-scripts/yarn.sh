@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 ## Configure the repository
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
